@@ -18,7 +18,7 @@ app.add_middleware(
 class UserMessage(BaseModel):
     message: str
 
-@app.post("/chat")
+@app.post("https://hotel-chatbot-sigma.vercel.app/api/app/chat")
 async def chat(msg: UserMessage):
     user_msg = msg.message.strip()
     if not user_msg:
