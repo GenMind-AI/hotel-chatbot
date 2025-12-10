@@ -5,7 +5,7 @@ from dateparser.search import search_dates
 from openai import OpenAI
 import requests
 
-# --- Setup OpenAI client ---
+# --- OpenAI client ---
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 HOTEL_API_BEARER_TOKEN = os.getenv("HOTEL_API_BEARER_TOKEN")
 
