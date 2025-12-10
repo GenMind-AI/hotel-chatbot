@@ -30,7 +30,7 @@ async function sendMsg() {
     if(!input.value) return;
     const messagesDiv = document.getElementById("messages");
     messagesDiv.innerHTML += `<div class="message user">${input.value}</div>`;
-    const response = await fetch('/api/app/chat', {
+    const response = await fetch('/api/chat', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({message: input.value})
