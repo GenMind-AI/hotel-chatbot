@@ -138,3 +138,6 @@ async def chat(msg: UserMessage):
         return {"reply": ai_msg2.content}
 
     return {"reply": ai_msg.content}
+
+# --- This line is crucial for Vercel ---
+handler = app
