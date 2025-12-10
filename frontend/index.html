@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Chatbot</title>
+<style>
+body { font-family: Arial; margin:0; padding:0; }
+#chatbox { width: 400px; height: 500px; border:1px solid #ccc; margin:20px auto; display:flex; flex-direction:column; }
+#messages { flex:1; overflow-y:auto; padding:10px; }
+#input { display:flex; }
+#input input { flex:1; padding:10px; }
+#input button { padding:10px; }
+.message { margin-bottom:10px; }
+.user { color: blue; }
+.bot { color: green; }
+</style>
+</head>
+<body>
+<div id="chatbox">
+  <div id="messages"></div>
+  <div id="input">
+    <input type="text" id="msg" placeholder="Type your message...">
+    <button onclick="sendMsg()">Send</button>
+  </div>
+</div>
+<script>
+async function sendMsg() {
+    const input = document.getElementById("msg");
+    if(!input.value) return;
+    const messagesDiv = document.getElementById("messages");
+    messagesDiv.innerHTML += `<div class="message user">${input.value}</div>`;
+    const response = await fetch('/chat', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message: input.value})
+    });
+    const data = await response.json();
+    messagesDiv.innerHTML += `<div class="message bot">${data.reply}</div>`;
+    input.value = '';
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+</script>
+</body>
+</html>
