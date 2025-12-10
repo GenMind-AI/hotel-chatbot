@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import json
 from app import messages, call_gpt, try_handle_tool_call, tool_availability, tool_price
 
+# --- Vercel-required app ---
 app = FastAPI()
 
-# Allow all websites to call this API
+# Enable CORS for frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
