@@ -1,0 +1,6 @@
+openai
+ipywidgets
+dateparser
+requests
+fastapi
+uvicorn
