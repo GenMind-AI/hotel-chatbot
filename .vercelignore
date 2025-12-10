@@ -1,0 +1,10 @@
+# Ignore the main library file
+app.py
+
+# Ignore Python cache and pyc files
+__pycache__/
+*.pyc
+
+# Ignore local environment files
+.env
+.env.*
