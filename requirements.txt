@@ -1,6 +1,5 @@
 openai
-ipywidgets
-dateparser
 requests
 fastapi
 uvicorn
+python-dateparser
