@@ -2,4 +2,4 @@ openai
 requests
 fastapi
 uvicorn
-python-dateparser
+dateparser
